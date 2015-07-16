@@ -1,0 +1,17 @@
+allprojects {
+    group = 'org.restler.example'
+    version = '0.1.0-SNAPSHOT'
+}
+
+subprojects {
+
+    apply plugin: 'java'
+
+    repositories {
+        mavenCentral()
+        maven { url "http://repo.maven.apache.org/maven2" }
+    }
+
+    sourceCompatibility = 1.8
+    targetCompatibility = 1.8
+}
