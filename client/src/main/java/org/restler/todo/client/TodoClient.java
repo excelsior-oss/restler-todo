@@ -1,3 +1,5 @@
+package org.restler.todo.client;
+
 import org.restler.Service;
 import org.restler.ServiceBuilder;
 import org.restler.todo.Todo;
