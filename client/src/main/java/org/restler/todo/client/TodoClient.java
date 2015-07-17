@@ -42,7 +42,7 @@ public class TodoClient {
                         String[] cmdParts = command.split(" ");
                         return handlers.getOrDefault(cmdParts[0], this::defaultHandler).apply(tail(cmdParts));
                     }).
-                    filter("stop"::equals).findAny();
+                    filter(Result.BREAK::equals).findAny();
         }
     }
 
