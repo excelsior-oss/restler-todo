@@ -1,6 +1,5 @@
 package org.restler.todo;
 
-import java.util.Collection;
 import java.util.UUID;
 import java.util.concurrent.ConcurrentHashMap;
 
