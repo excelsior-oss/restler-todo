@@ -4,5 +4,6 @@ mainClassName = 'org.restler.todo.Starter'
 
 dependencies {
     compile project(':api'),
-            'org.springframework.boot:spring-boot-starter-web:1.2.5.RELEASE'
+            'org.springframework.boot:spring-boot-starter-web:1.2.5.RELEASE',
+            'com.fasterxml.jackson.module:jackson-module-paranamer:2.6.1'
 }

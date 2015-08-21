@@ -1,9 +1,11 @@
 package org.restler.todo.client;
 
+import com.fasterxml.jackson.module.paranamer.ParanamerModule;
 import org.restler.todo.Todo;
 import org.restler.todo.Todos;
 import org.springframework.http.HttpMethod;
 import org.springframework.http.RequestEntity;
+import org.springframework.http.converter.json.MappingJackson2HttpMessageConverter;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.client.RestTemplate;
@@ -15,6 +17,13 @@ public class ManualTodosImpl implements Todos {
 
     private static final String baseUrl = "http://localhost:8080/";
     private RestTemplate restTemplate = new RestTemplate();
+
+    public ManualTodosImpl() {
+        ParanamerModule module = new ParanamerModule();
+        restTemplate.getMessageConverters().stream().
+                filter(c -> c instanceof MappingJackson2HttpMessageConverter).
+                forEach(c -> ((MappingJackson2HttpMessageConverter) c).getObjectMapper().registerModule(module));
+    }
 
     @Override
     public Todo create(Todo todo) {

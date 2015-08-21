@@ -1,5 +1,6 @@
 package org.restler.todo.client;
 
+import com.fasterxml.jackson.module.paranamer.ParanamerModule;
 import org.restler.Service;
 import org.restler.ServiceBuilder;
 import org.restler.todo.Todo;
@@ -33,6 +34,7 @@ public class TodoClient {
 
     private void run() throws IOException {
         ServiceBuilder builder = new ServiceBuilder("http://localhost:8080");
+        builder.addJacksonModule(new ParanamerModule());
         Service todosService = builder.build();
         todos = todosService.produceClient(Todos.class);
 

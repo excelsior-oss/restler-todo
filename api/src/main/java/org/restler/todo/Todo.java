@@ -13,10 +13,7 @@ public class Todo implements Serializable {
     public final boolean done;
 
     @JsonCreator
-    public Todo(@JsonProperty("id") String id,
-                @JsonProperty("name") String name,
-                @JsonProperty("description") String description,
-                @JsonProperty("done") boolean done) {
+    public Todo(String id, String name, String description, boolean done) {
         this.id = id;
         this.name = name;
         this.description = description;
