@@ -1,8 +1,9 @@
 package org.restler.todo.client;
 
 import com.fasterxml.jackson.module.paranamer.ParanamerModule;
+import org.restler.Restler;
 import org.restler.Service;
-import org.restler.ServiceBuilder;
+import org.restler.spring.mvc.SpringMvcSupport;
 import org.restler.todo.Todo;
 import org.restler.todo.Todos;
 
@@ -33,8 +34,9 @@ public class TodoClient {
     }
 
     private void run() throws IOException {
-        ServiceBuilder builder = new ServiceBuilder("http://localhost:8080");
-        builder.addJacksonModule(new ParanamerModule());
+        SpringMvcSupport springMvcSupport = new SpringMvcSupport();
+        springMvcSupport.addJacksonModule(new ParanamerModule());
+        Restler builder = new Restler("http://localhost:8080", springMvcSupport);
         Service todosService = builder.build();
         todos = todosService.produceClient(Todos.class);
 

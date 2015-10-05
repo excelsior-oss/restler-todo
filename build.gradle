@@ -5,6 +5,7 @@ subprojects {
     repositories {
         mavenCentral()
         maven { url "http://repo.maven.apache.org/maven2" }
+        mavenLocal()
     }
 
     sourceCompatibility = 1.8
